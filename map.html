@@ -1,0 +1,125 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./css/styles.css">
+   
+    <!-- link css leaflet -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""/>
+    <!-- link js leaflet -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sriracha&display=swap" rel="stylesheet">
+    <img src="img\1.png" alt="" width="100%"> 
+<style>
+        html, body, #map {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+</style>
+<title>แผนที่พิกัดวัดในพระนครศรีอยุธยา</title>
+<!-- The navigation menu -->
+<div class="navbar">
+    <a href="index.html">ประวัติพระนครศรีอยุธยา</a>
+    <a href="20measure.html">พิกัด 20 วัดเก่าแก่ในพระนครศรีอยุธยา</a>
+    <a class="active" href="map.html">แผนที่พิกัดวัดในพระนครศรีอยุธยา</a>
+  </div> 
+   
+</head>
+<body>
+   
+    <!-- แบ่งส่วนหน้าจอ -->
+    <article>
+        <U><h1>แผนที่แสดงพิกัด 20 วัดเก่าแก่</h1></U>
+    <center><div id="temple" style="width: 70%; height: 100%"></div></center>
+    <script>
+        //set view map
+        var map = L.map('temple').setView([14.36906473637582, 100.55370236719301], 13);
+        //import based map
+        var OSM = L.tileLayer('https://tile.openstreetmap.de/{z}/{x}/{y}.png', {
+         maxZoom: 18,
+         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+        var Esri = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
+         attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ',
+         maxZoom: 16
+        }).addTo(map);
+       
+        
+        var baseLayers = {
+            "Esri" : Esri,
+            "OSM" : OSM,
+        }
+        L.control.layers(baseLayers).addTo(map);
+        
+        
+var ayuttaya = [
+["<b>วัดกษัตราธิราชวรวิหาร</b><br>จังหวัดพระนครศรีอยุธยา", 14.3516270655422, 100.544383673013],
+["<b>วัดนิเวศธรรมประวัติราชวรวิหาร</b><br>จังหวัดพระนครศรีอยุธยา", 14.2317646880625, 100.576243166266],
+["<b>วัดมหาธาตุ</b><br>จังหวัดพระนครศรีอยุธยา", 14.3571157971694, 100.567462920239],
+["<b>วัดแม่นางปลื้ม</b><br>จังหวัดพระนครศรีอยุธยา", 14.3683797750347, 100.569453593253],
+["<b>วัดพระราม</b><br>จังหวัดพระนครศรีอยุธยา", 14.3542615445146, 100.560521562568],
+["<b>วัดสุวรรณดารารามราชวรวิหาร</b><br>จังหวัดพระนครศรีอยุธยา", 14.3486643036425, 100.57842987976],
+["<b>วัดภูเขาทอง</b><br>จังหวัดพระนครศรีอยุธยา", 14.368421722277, 100.539113747226],
+["<b>วัดกุฎีดาว</b><br>จังหวัดพระนครศรีอยุธยา",14.3635026047657, 100.589950263817],
+["<b>วิหารพระมงคลบพิตร</b><br>จังหวัดพระนครศรีอยุธยา", 14.355104092576, 100.557720377911],
+["<b>วัดมเหยงคณ์</b><br>จังหวัดพระนครศรีอยุธยา", 14.3639110592494, 100.595016677911],
+["<b>วัดใหญ่ชัยมงคล </b><br>จังหวัดพระนครศรีอยุธยา", 14.56391, 100.7715],
+["<b>วัดพนัญเชิง</b><br>จังหวัดพระนครศรีอยุธยา", 14.34467, 100.5789],
+["<b>วัดพระศรีสรรเพชญ์</b><br>จังหวัดพระนครศรีอยุธยา", 14.35634, 100.55816],
+["<b>วัดหน้าพระเมรุ</b><br>จังหวัดพระนครศรีอยุธยา", 14.36325,100.5588],
+["<b>วัดไชยวัฒนาราม</b><br>จังหวัดพระนครศรีอยุธยา", 14.34381, 100.54182],
+["<b>วัดราชบูรณะ</b><br>จังหวัดพระนครศรีอยุธยา", 14.35949, 100.56742],
+["<b>วัดท่าการ้อง</b><br>จังหวัดพระนครศรีอยุธยา", 14.35887, 100.54348],
+["<b>วัดธรรมิกราช</b><br>จังหวัดพระนครศรีอยุธยา",14.36023, 100.56154],
+["<b>วัดเชิงท่า</b><br>จังหวัดพระนครศรีอยุธยา", 14.36297, 100.5537],
+["<b>วัดพุทไทยสวรรค์</b><br>จังหวัดพระนครศรีอยุธยา", 14.34052, 100.55837],
+];
+
+//เปลี่ยน icon
+var greenIcon = L.icon({
+iconUrl: 'https://cdn-icons-png.flaticon.com/128/11167/11167180.png',
+//shadowUrl: 'https://leafletjs.com/examples/custom-icons/leaf-shadow.png',
+
+iconSize: [, 35], // size of the icon
+//shadowSize: [50, 64], // size of the shadow
+iconAnchor: [22, 94], // point of the icon which will correspond to marker's location
+//shadowAnchor: [4, 62], // the same for the shadow
+popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
+});
+
+for (var i = 0; i < ayuttaya.length; i++) {
+
+marker = new L.marker([ayuttaya[i][1], ayuttaya[i][2]], {icon: greenIcon})
+    .bindPopup(ayuttaya[i][0])
+    .addTo(map);
+}
+
+//description/Legend
+var legend = L.control({position:"bottomleft"});
+legend.onAdd = function(temple) {
+var div = L.DomUtil.create("div", "legend");
+div.innerHTML = 
+'<p><b>คำอธิบายสัญลักษณ์</p></b>' +
+'<img src ="https://cdn-icons-png.flaticon.com/128/11167/11167180.png" width = 10%<b>วัดเก่าแก่ในอยุธยา</b><hr>' +
+'<h3><b>Srinakharinwirot university</b></h3><hr>' +
+'<b>Created by ID:<br> 64103010274,64103010327,64103010861 </b><br>' +
+'<img src="https://unity.swu.ac.th/wp-content/uploads/2020/07/SWU_Logo_EN_Color.png" width = 20%>';
+return div;
+};
+legend.addTo(map);
+
+    </script>
+     </body>
+</html>
